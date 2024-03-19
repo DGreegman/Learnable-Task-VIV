@@ -53,4 +53,4 @@ By default, the server runs on port 3000. You can change the port by setting the
 # Documentation
 link for documentation is below:
 
-[docs]()
+[docs](https://documenter.getpostman.com/view/29102282/2sA2xpU9yX)
