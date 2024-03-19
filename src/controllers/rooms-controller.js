@@ -46,24 +46,19 @@ class RoomsController{
     // getting all the rooms
    async getRooms (req, res) {
        try {
-           /* let query = {};
+           
+        
+           const q = req.query
+           
+           const filters = {
+               ...(q.name && { name: q.name }),
+               ...(q.roomType && { roomType: q.roomType }),
+               ...((q.minPrice || q.maxPrice) && { price: { ...(q.minPrice && { $gt: q.minPrice }), ...(q.maxPrice && { $lt: q.maxPrice }) } }),
+               ...(q.search && { title: { $regex: q.search, $options: "i" } })
+           };
 
-           // Add filters if provided
-           if (req.query.roomType) {
-               query.type = req.query.roomType;
-           }
-           if (req.query.minPrice || req.query.maxPrice) {
-               query.price = {};
-               if (req.query.minPrice) {
-                   query.price.$gte = parseFloat(req.query.minPrice);
-               } else {
-                   query.price.$gte = 0;
-               }
-               if (req.query.maxPrice) {
-                   query.price.$lte = parseFloat(req.query.maxPrice);
-               }
-           } */
-            const rooms = await Rooms.find()
+
+            const rooms = await Rooms.find(filters)
             if (!rooms) {
               return  res.status(404).json({ message: "No rooms found" })
             }   
