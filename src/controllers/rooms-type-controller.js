@@ -9,11 +9,22 @@ class RoomTypeController {
         try {
             const roomTypes = await RoomType.find();
             if (!roomTypes || roomTypes.length === 0) {
-              return res.status(404).json({ message: 'No room types found' });
+                return res.status(404).json({
+                    
+                    message: 'No room types found'
+                });
             }
-            res.status(200).json(roomTypes);
+            res.status(200).json({
+                length: roomTypes.length,
+                message: roomTypes
+            });
         } catch (error) {
-            res.status(500).json({ message: error.message });
+            console.log(error.name)
+            res.status(500).json({
+                status: 'fail',
+                message: error.message,
+                name: error.name
+            });
         }
     };
     
