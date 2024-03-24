@@ -6,6 +6,7 @@ const roomsTypes = require('./routes/rooms-type-routes')
 const rooms = require('./routes/rooms-route')
 const CustomError = require('./errors/CustomError')
 const errorHandler = require('./handler/handler')
+const userRoute = require('./routes/user.route')
 
 
 
@@ -19,6 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use('/api/v1/rooms-types', roomsTypes)
 app.use('/api/v1/rooms', rooms)
+app.use('/api/v1/user', userRoute)
 
 // DEFAULT ROUTE
 app.use('*', (req, res, next) => {

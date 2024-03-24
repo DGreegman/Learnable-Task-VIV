@@ -1,6 +1,5 @@
 const Rooms = require('../models/rooms-model');
-const express = require('express')
-const mongoose = require('mongoose')
+
 
 class RoomsController{
     constructor(){}
