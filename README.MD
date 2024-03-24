@@ -1,6 +1,6 @@
 # Hotel Management API
 
-APIS in vanilla javascript using NodeJs and ExpressJs for the frontend to consume, for storage of room types and rooms, respectively
+APIS in vanilla javascript using NodeJs and ExpressJs for the frontend to consume, for storage of room types and rooms, respectively, Authentication and Authorization added preventing unauthenticated users from having access and also if a user is authenticated and not an admin then the user can't delete or edit a room-type
 
 # Folder Structure Conventions
 
@@ -13,13 +13,24 @@ APIS in vanilla javascript using NodeJs and ExpressJs for the frontend to consum
      |	|–– models
      |	|	|- rooms-model.js
      |  |   |- rooms-types-model.js
+     |  |   |- user.model.js
      |	|–– routes
      |	|	|- rooms-routes.js
      |  |   |- rooms-types-routes.js
+     |  |   |- user.route.js
      |	|–– controllers
      |	|	|- rooms-controllers.js
      |  |   |- rooms-types-controllers.js
-     |	|-app.js
+     |  |   |- user.controller.js
+     |  |–– errors
+     |  |   |-CustomError.js
+     |  |–– Helpers
+     |  |   |- helpers.js
+     |  |–– middlewares
+     |  |   |- restrict.js
+     |  |   |- validateToken.js
+     |  |   |- validateUserInput.js
+     |	|- app.js
      |-.gitignore
      |-package-lock.json
      |-package.json

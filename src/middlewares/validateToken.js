@@ -1,9 +1,9 @@
 const CustomError = require("../errors/CustomError")
 const jwt = require('jsonwebtoken')
 const util = require('util')
-const User = require('../models/user.models')
+const User = require('../models/user.model')
 
-const validateToken = async(req, res, next) => {
+const validateToken = async (req, res, next) => {
     // Read the token to know if it exists
     const testToken = req.headers.authorization || req.headers.Authorization
 

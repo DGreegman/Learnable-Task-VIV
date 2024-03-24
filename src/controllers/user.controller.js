@@ -1,4 +1,4 @@
-const User = require('../models/user.models')
+const User = require('../models/user.model')
 
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -16,7 +16,7 @@ class UserController {
             const userExists = await User.findOne({ email })
             if (userExists) {
                 const error = new CustomError('User with this email already exists', 400)
-               return next(error)
+                return next(error)
             }
 
             const hashPassword = bcrypt.hashSync(password, 7)
@@ -42,7 +42,7 @@ class UserController {
             const user = await User.findOne({ email })
             if (!user) {
                 const error = new CustomError('User with this email does not exist', 400)
-                return  next(error)
+                return next(error)
             }
 
             const isPasswordCorrect = bcrypt.compareSync(password, user.password)

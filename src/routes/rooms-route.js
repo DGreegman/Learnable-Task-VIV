@@ -8,7 +8,7 @@ const restrict = require('../middlewares/restrict')
 
 /* the validateToken is a middleware used to prevent users from creating the rooms except they are logged in..
 
-the user can only view the created rooms but can't create, delete, or edit
+the user can only view the created rooms but can't create, delete, or edit if he/she isn't logged in
 
 the restrict middleware function prevents users who are not admins to delete or edit, but the admin must login to perform this operation
 
