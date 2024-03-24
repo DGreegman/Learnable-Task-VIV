@@ -1,7 +1,7 @@
 const CustomError = require("../errors/CustomError")
 const jwt = require('jsonwebtoken')
 const util = require('util')
-const User = require('../models/userModel')
+const User = require('../models/user.models')
 
 const validateToken = async(req, res, next) => {
     // Read the token to know if it exists
@@ -17,7 +17,7 @@ const validateToken = async(req, res, next) => {
     // console.log(token)
 
     // validate the token 
-    const decoded = await util.promisify(jwt.verify)(token, process.env.SECRET_STR)
+    const decoded = await util.promisify(jwt.verify)(token, process.env.SECRET_KEY)
     // console.log(decoded)
 
     // check if the user exist using the ID
